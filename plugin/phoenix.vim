@@ -26,45 +26,47 @@ augroup phoenix
     \ endif
 augroup end
 
+let s:project = substitute(getcwd(),".*/","","")
+
 let s:projections = {
-  \ "web/channels/*_channel.ex": {
+  \ "lib/". s:project. "_web/channels/*_channel.ex": {
   \   "type": "channel",
-  \   "alternate": "test/channels/{}_channel_test.exs"
+  \   "alternate": "test/". s:project. "_web/channels/{}_channel_test.exs"
   \ },
-  \ "web/controllers/*_controller.ex": {
+  \ "lib/". s:project. "_web/controllers/*_controller.ex": {
   \   "type": "controller",
-  \   "alternate": "test/controllers/{}_controller_test.exs"
+  \   "alternate": "test/". s:project. "_web/controllers/{}_controller_test.exs"
   \ },
-  \ "web/views/*_view.ex": {
+  \ "lib/". s:project. "_web/views/*_view.ex": {
   \   "type": "view",
-  \   "alternate": "test/views/{}_view_test.exs"
+  \   "alternate": "test/". s:project. "_web/views/{}_view_test.exs"
   \ },
-  \ "web/models/*.ex": {
-  \   "type": "model",
-  \   "alternate": "test/models/{}_test.exs"
+  \ "lib/". s:project. "/*.ex": {
+  \   "type": "context",
+  \   "alternate": "test/". s:project. "/{}_test.exs"
   \ },
-  \ "test/channels/*_channel_test.exs": {
-  \   "alternate": "web/channels/{}_channel.ex"
+  \ "test/". s:project. "_web/channels/*_channel_test.exs": {
+  \   "alternate": "lib/". s:project. "_web/channels/{}_channel.ex"
   \ },
-  \ "test/controllers/*_controller_test.exs": {
-  \   "alternate": "web/controllers/{}_controller.ex"
+  \ "test/". s:project. "_web/controllers/*_controller_test.exs": {
+  \   "alternate": "lib/". s:project. "_web/controllers/{}_controller.ex"
   \ },
-  \ "test/views/*_view_test.exs": {
-  \   "alternate": "web/views/{}_view.ex"
+  \ "test/". s:project. "_web/views/*_view_test.exs": {
+  \   "alternate": "lib/". s:project. "_web/views/{}_view.ex"
   \ },
-  \ "test/models/*_test.exs": {
-  \   "alternate": "web/models/{}.ex"
+  \ "test/". s:project. "/*_test.exs": {
+  \   "alternate": "lib/". s:project. "/{}.ex"
   \ },
-  \ "web/templates/*.html.eex": {
+  \ "lib/". s:project. "_web/templates/*.html.eex": {
   \   "type": "template"
   \ },
-  \ "web/router.ex": {
+  \ "lib/". s:project. "_web/router.ex": {
   \   "type": "router"
   \ },
-  \ "web/static/css/*": {
+  \ "assets/static/css/*": {
   \   "type": "stylesheet"
   \ },
-  \ "web/static/js/*": {
+  \ "assets/static/js/*": {
   \   "type": "javascript"
   \ },
   \ "config/*.exs": {
@@ -89,6 +91,6 @@ augroup phoenix_path
   autocmd User Phoenix call phoenix#DefineMixCommand()
   autocmd User Phoenix call phoenix#SetupSurround()
   autocmd User Phoenix
-        \ let &l:path = 'lib/**,web/**,test/**,config/**' . &path |
+        \ let &l:path = 'lib/'. s:project. '_web/**,assets/static/**,lib/**,test/**,config/**' . &path |
         \ let &l:suffixesadd = '.ex,.exs,.html.eex' . &suffixesadd
 augroup END

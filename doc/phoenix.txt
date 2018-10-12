@@ -43,21 +43,21 @@ The |projections| plugin can be used to define navigation commands. This
 plugin provides several projections based on Phoenix project layout conventions.
 These include:
 
-:Echannel [name]	Edit a file in {web/channels}
+:Echannel [name]	Edit a file in {_web/channels}
 
-:Econtroller [name]	Edit a file in {web/controllers}
+:Econtroller [name]	Edit a file in {_web/controllers}
 
-:Eview [name]		Edit a file in {web/views}
+:Eview [name]		Edit a file in {_web/views}
 
-:Emodel [name]		Edit a file in {web/models}
+:Emodel [name]		Edit a file in {_web/models}
 
-:Etemplate [name]	Edit a file in {web/templates}
+:Etemplate [name]	Edit a file in {_web/templates}
 
-:Erouter		Edit {web/router.ex}
+:Erouter		Edit {_web/router.ex}
 
-:Estylesheet [name]	Edit a file in {web/static/css}
+:Estylesheet [name]	Edit a file in {assets/static/css}
 
-:Ejavascript [name]	Edit a file in {web/static/js}
+:Ejavascript [name]	Edit a file in {assets/static/js}
 
 :Econfig [name]		Edit a file in {config/}
 

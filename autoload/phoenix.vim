@@ -14,7 +14,7 @@ function! s:find_root(path) abort
   let root = s:shellslash(simplify(fnamemodify(a:path, ':p:s?[\/]$??')))
   let previous = ''
   while root !=# previous && root !=# '/'
-    if filereadable(root . '/mix.exs') && isdirectory(root . '/web')
+    if filereadable(root . '/mix.exs')
       return root
     end
     let previous = root
