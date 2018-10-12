@@ -1,5 +1,16 @@
 # vim-phoenix
 
+## Why?
+
+I forked this to add support for Phoenix 1.3 or 1.4 contexts and the new
+layout.  **NB: this is not smart, this is just functional, so, eg., it assumes
+a default phoenix project, ie. the name of your current working directory (the
+top level of your Phoneix app) should match the subdirectories under `lib/`**
+
+Now back to your regular program...
+
+---
+
 This plugin helps you navigate and develop projects using the [Phoenix web
 framework][phoenix]. A Phoenix project is detected by looking for a `mix.exs`
 file along with `web` directory. When you edit a file in a Phoenix project, this
